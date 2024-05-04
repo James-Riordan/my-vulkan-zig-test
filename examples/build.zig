@@ -23,9 +23,9 @@ pub fn build(b: *std.Build) void {
     triangle_exe.addLibraryPath(.{ .cwd_relative = "/usr/local/Cellar/glfw/3.4/lib" });
     triangle_exe.addIncludePath(.{ .cwd_relative = "/usr/local/Cellar/glfw/3.4/include" });
 
-    triangle_exe.linkSystemLibrary("molten-vk");
-    triangle_exe.addLibraryPath(.{ .cwd_absolute = "/usr/local/Cellar/molten-vk/1.2.7/lib" });
-    triangle_exe.addIncludePath(.{ .cwd_absolute = "/usr/local/Cellar/molten-vk/1.2.7/include" });
+    triangle_exe.linkSystemLibrary("MoltenVK");
+    triangle_exe.addLibraryPath(.{ .cwd_relative = "/usr/local/Cellar/molten-vk/1.2.7/libexec/lib" });
+    triangle_exe.addIncludePath(.{ .cwd_relative = "/usr/local/Cellar/molten-vk/1.2.7/include" });
 
     const vk_gen = b.dependency("vulkan_zig", .{}).artifact("vulkan-zig-generator");
     const vk_generate_cmd = b.addRunArtifact(vk_gen);
